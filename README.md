@@ -11,6 +11,7 @@ The purpose of this project is to explore and utilize the OpenAI API to perform 
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Environment Variable Setup](#environment-variable-setup)
 - [Scripts](#scripts)
   - [Assistant_GPT_4o_API_Endpoint.py](#Assistant_GPT_4o_API_Endpointpy)
   - [Assistant_GPT_4o_API_no_stream.py](#Assistant_GPT_4o_API_no_streampy)
@@ -19,7 +20,9 @@ The purpose of this project is to explore and utilize the OpenAI API to perform 
   - [Assistant_GPT_4o_callories_estimator.py](#Assistant_GPT_4o_callories_estimatorpy)
   - [Assistant_GPT_4o_Component_finder.py](#Assistant_GPT_4o_Component_finderpy)
   - [Assistant_GPT_4o_image_identifier.py](#Assistant_GPT_4o_image_identifierpy)
-  - [component_finder.py](#component_finderpy)
+  - [Vector_Store_and_files_Assistant.py](#Vector_Store_and_files_Assistantpy)
+  - [Vector_store_API_EndPoint.py](#Vector_store_API_EndPointpy)
+  - [Vector_store_and_files_API_Endpoint.py](#Vector_store_and_files_API_Endpointpy)
 
 ## Installation
 
@@ -34,10 +37,35 @@ The purpose of this project is to explore and utilize the OpenAI API to perform 
     pip install -r requirements.txt
     ```
 
-3. Set your OpenAI API key as an environment variable:
-    ```sh
-    export OPENAI_API_KEY='your-api-key'
-    ```
+## Environment Variable Setup
+
+To use the OpenAI API, you need to set up an environment variable for your API key. This key is required for authentication when making requests to the OpenAI API.
+
+### On Linux/MacOS
+
+Open your terminal and run the following command:
+
+```sh
+export OPENAI_API_KEY='your-api-key'
+```
+
+To make this change permanent, add the above line to your `~/.bashrc` or `~/.zshrc` file.
+
+### On Windows
+
+Open Command Prompt or PowerShell and run the following command:
+
+```sh
+setx OPENAI_API_KEY "your-api-key"
+```
+
+Alternatively, you can set the environment variable through the System Properties:
+
+1. Open the Start Search, type in "env", and select "Edit the system environment variables".
+2. In the System Properties window, click on the "Environment Variables" button.
+3. Click "New" to create a new environment variable.
+4. Enter `OPENAI_API_KEY` as the name and your actual API key as the value.
+5. Click OK to apply the changes.
 
 ## Usage
 
@@ -73,9 +101,14 @@ This script analyzes an image of a PCB (Printed Circuit Board) and identifies th
 
 This script identifies the contents of an image, such as food items on a plate. It encodes the image, sends it to the OpenAI API, and prints the identified items along with their descriptions.
 
-### component_finder.py
+### Vector_Store_and_files_Assistant.py
+This script demonstrates how to create an assistant for analyzing invoice files using vector stores. It shows how to upload files, create vector stores, and handle file searches within the assistant.
 
-This script is similar to `Assistant_GPT_4o_Component_finder.py` but serves as an additional example of how to structure payloads and handle API responses for identifying electronic components in an image.
+### Vector_store_API_EndPoint.py
+This script provides functions for managing vector stores, including creating, listing, and deleting vector stores. It also includes functionality for uploading files to vector stores.
+
+### Vector_store_and_files_API_Endpoint.py
+This script combines the functionality of managing vector stores and handling file uploads. It demonstrates how to create vector stores, upload files, and manage file batches within a vector store.
 
 ---
 
